@@ -3,7 +3,7 @@
         <!-- Room List -->
         <div class="shadow-sm min-w-full bg-white border border-gray-400 rounded mb-6">
             <div class="lg:flex">
-                <div class="m-2 rounded h-48 lg:h-auto lg:w-1/4 flex-none bg-cover text-center overflow-hidden" :style="room.image" title="Woman holding a mug">
+                <div class="m-2 rounded h-48 lg:h-auto lg:w-1/4 flex-none bg-cover text-center overflow-hidden" :style="{ backgroundImage: `url(${room.image})` }" title="Woman holding a mug">
                 </div>
                 <div class="w-full lg:w-3/4   p-4 flex flex-col justify-between leading-normal">
                     <div class="mb-8">
@@ -45,7 +45,7 @@
                             <p class="text-gray-900 font-bold text-2xl ">{{rate.from}} €</p>
                             <p class="text-sm">Per night</p>
                             <p class="text-sm text-gray-700">Including Taxes & Fees</p>
-                            <button class="w-full bg-gray-900 text-white rounded px-3 py-2 my-2 uppercase">Book Now</button>
+                            <button class="w-full bg-gray-900 text-white rounded px-3 py-2 my-2 uppercase" @click.prevent="bookRoom(room.code, rate.code)">Book Now</button>
                         </div>
                     </div>
 
@@ -58,6 +58,8 @@
 
 <script>
 
+    import { mapGetters } from 'vuex'
+
     export default {
 
         name: 'IbeRoom',
@@ -65,7 +67,24 @@
             room: Object,
             title: String,
             image: String,
-        }
+        },
+
+        computed: {
+            ...mapGetters(['getRoomSearchData', 'getRoomModuleBookDetails'])
+        },
+
+        methods: {
+            bookRoom(selected_room_code, selected_rate_code) {
+                if (!this.getRoomSearchData) return alert('You haven\'t searched for rooms with the data required! Fill out the search form and hit search before booking.')
+                
+                this.$store.dispatch('bookRoom', {
+                    ...this.getRoomSearchData,
+                    selected_room_code,
+                    selected_rate_code
+                }).then(() => this.$router.push({ name: 'booked' }))
+
+            }
+        },
     }
 </script>
 
