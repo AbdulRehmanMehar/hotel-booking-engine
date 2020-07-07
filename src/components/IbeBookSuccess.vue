@@ -37,7 +37,7 @@
         <div class="w-full">
             
             <!-- FORM -->
-            <form class="w-full">
+            <form class="w-full" @submit.prevent="completeReservation">
                 <div class="my-6 pb-1 border-t-2 border-b-2 border-black"></div>
                 <h3 class="text-xl font-bold my-5 uppercase">Your Personal Details</h3>
                 <div class="flex flex-wrap -mx-3 mb-6">
@@ -84,7 +84,7 @@
                 <div class="my-6 pb-1 border-t-2 border-b-2 border-black"></div>
                 <h3 class="text-xl font-bold my-5 uppercase">Your Payment Details</h3>
 
-                <div class="flex w-full">
+                <div class="flex w-full mb-6">
                     <div class="w-1/2">
                         <div class="w-full mb-6">
                             <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Credit Card Name">
@@ -108,6 +108,17 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                
+                    
+                        <button class="bg-transparent w-full hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                            Complete Reservation
+                        </button>
+
+                    </div>
+                </div>
             </form>
         </div>
 
@@ -121,6 +132,12 @@
 
         computed: {
             ...mapGetters(['getRoomModuleBookDetails'])
+        },
+
+        methods: {
+            completeReservation() {
+                // TODO: Handle form submission
+            }
         }
 
     }
