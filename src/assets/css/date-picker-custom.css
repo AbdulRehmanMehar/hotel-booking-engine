@@ -1,0 +1,22 @@
+.date-picker-custom {
+    top: 30%; 
+    width: calc(100% - 24px);
+}
+
+.date-picker-custom .datepicker__wrapper {
+    background-color: transparent;
+}
+
+.date-picker-custom .datepicker__dummy-wrapper.datepicker__dummy-wrapper--is-active .datepicker__input:focus-within {
+    color: #6acc9d;
+}
+
+.date-picker-custom .datepicker__clear-button{
+    margin-right: -15px;
+    margin-top: 18px;
+}
+
+.date-picker-custom .datepicker__clear-button svg {
+    stroke: #6acc9d;
+    stroke-width: 15px !important;
+}
