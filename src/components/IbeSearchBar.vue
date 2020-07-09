@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto hidden lg:block">
+    <div class="mx-auto lg:block">
 
 
         <form class="" @submit.prevent="search">
@@ -16,7 +16,7 @@
                     </label>
                     <input v-model="nr_child" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-nr-children" type="number" name="nr_children" placeholder="0">
                 </div>
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 relative">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 relative sm-margin-bottom">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                         Date
                     </label>

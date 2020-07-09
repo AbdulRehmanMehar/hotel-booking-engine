@@ -20,3 +20,13 @@
     stroke: #6acc9d;
     stroke-width: 15px !important;
 }
+
+@media (max-width: 640px) {
+    .sm-margin-bottom {
+        margin-bottom: 70px !important;
+    }
+
+    .date-picker-custom {
+        margin-top: 15px;
+    }
+}

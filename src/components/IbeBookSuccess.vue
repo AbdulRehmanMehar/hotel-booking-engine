@@ -10,7 +10,7 @@
             <h1 class="text-3xl font-bold my-0 mx-auto">Your Booking Summary</h1>
         </div>
 
-        <div class="flex">
+        <div class="flex custom-wrap">
             <div class="w-1/4 h-24">
                 <div class="m-2 rounded h-24 lg:w-full flex-none bg-cover text-center overflow-hidden" :style="{ backgroundImage: `url(${getRoomModuleBookDetails.room.image})` }" title="Woman holding a mug">
                 </div>
@@ -57,7 +57,7 @@
                     
                     </div>
                 </div>
-                <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap -mx-3 md:mb-6">
                     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Zip Code">
                     </div>
@@ -84,7 +84,7 @@
                 <div class="my-6 pb-1 border-t-2 border-b-2 border-black"></div>
                 <h3 class="text-xl font-bold my-5 uppercase">Your Payment Details</h3>
 
-                <div class="flex w-full mb-6">
+                <div class="flex custom-wrap w-full mb-6">
                     <div class="w-1/2">
                         <div class="w-full mb-6">
                             <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Credit Card Name">
@@ -93,7 +93,7 @@
                             <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Credit Card Number">
                         </div>
                         <div class="w-full flex flex-wrap">
-                            <div class="w-1/2 mr-16">
+                            <div class="w-1/2 md:mr-16 sm:mr-12">
                                 <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" placeholder="Expiration Date">
                             </div>
                             <div class="w-1/3 ml-2">
@@ -142,3 +142,20 @@
 
     }
 </script>
+
+<style scoped>
+
+    @media (max-width: 640px) {
+        .custom-wrap {
+            flex-wrap: wrap !important;
+        }
+        .custom-wrap > * {
+            width: 100% !important;
+            margin: 10px 0;
+        }
+        .custom-wrap * {
+            text-align: left;
+        }
+    }
+
+</style>
